@@ -23,13 +23,13 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-gray-100/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
         <div className="p-8">
           <div className="flex justify-between items-center mb-8">
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                <Car className="w-6 h-6 text-blue-500" />
+                <Car className="w-6 h-6 text-primary" />
               </div>
               <h2 className="text-3xl font-bold text-gray-900">Complete Your Booking</h2>
             </div>
@@ -49,7 +49,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   required
                 />
               </div>
@@ -59,7 +59,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   required
                 />
               </div>
@@ -69,7 +69,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   required
                 />
               </div>
@@ -79,7 +79,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   type="text"
                   value={formData.pickupLocation}
                   onChange={(e) => setFormData({...formData, pickupLocation: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   required
                 />
               </div>
@@ -92,7 +92,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   type="date"
                   value={formData.pickupDate}
                   onChange={(e) => setFormData({...formData, pickupDate: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   required
                 />
               </div>
@@ -102,7 +102,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   type="date"
                   value={formData.dropoffDate}
                   onChange={(e) => setFormData({...formData, dropoffDate: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   required
                 />
               </div>
@@ -113,7 +113,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               <select
                 value={selectedCar}
                 onChange={(e) => setSelectedCar(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 required
               >
                 <option value="">Select a car type</option>
@@ -132,7 +132,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
                 rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 placeholder="Any special requirements or requests..."
               />
             </div>
@@ -154,7 +154,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               </button>
               <button
                 type="submit"
-                className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all font-semibold"
+                className="flex-1 bg-gradient-to-r from-primary to-primary-dark text-text-primary px-6 py-3 rounded-lg hover:from-primary-dark hover:to-blue-700 transition-all font-semibold"
               >
                 Confirm Booking
               </button>

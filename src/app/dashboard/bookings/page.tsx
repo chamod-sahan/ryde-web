@@ -30,7 +30,7 @@ export default function MyBookingsPage() {
     const getStatusColor = (status: string) => {
         switch (status) {
             case 'active': return 'bg-green-500/20 text-green-400 border-green-500/30';
-            case 'upcoming': return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
+            case 'upcoming': return 'bg-primary/20 text-blue-400 border-primary/30';
             case 'completed': return 'bg-gray-500/20 text-gray-400 border-gray-500/30';
             case 'cancelled': return 'bg-red-500/20 text-red-400 border-red-500/30';
             default: return 'bg-gray-500/20 text-gray-400 border-gray-500/30';
@@ -38,7 +38,7 @@ export default function MyBookingsPage() {
     };
 
     return (
-        <div className="relative min-h-screen bg-black text-white pt-24 pb-12">
+        <div className="relative min-h-screen bg-background text-text-primary pt-24 pb-12">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4">
@@ -62,7 +62,7 @@ export default function MyBookingsPage() {
                                 placeholder="Search by car or booking ID..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full bg-black/60 border border-gray-700 rounded-xl pl-12 pr-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors"
+                                className="w-full bg-gray-100/60 border border-gray-700 rounded-xl pl-12 pr-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors"
                             />
                         </div>
 
@@ -73,8 +73,8 @@ export default function MyBookingsPage() {
                                     key={status}
                                     onClick={() => setFilter(status)}
                                     className={`px-4 py-2 rounded-xl font-medium transition-all capitalize ${filter === status
-                                            ? 'bg-blue-500 text-white'
-                                            : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                                            ? 'bg-primary text-text-primary'
+                                            : 'bg-gray-100/5 text-gray-400 hover:bg-gray-100/10'
                                         }`}
                                 >
                                     {status}
@@ -90,15 +90,15 @@ export default function MyBookingsPage() {
                         filteredBookings.map((booking, i) => (
                             <motion.div
                                 key={booking.id}
-                                className="glass-premium p-6 rounded-2xl hover:bg-white/10 transition-all"
+                                className="glass-premium p-6 rounded-2xl hover:bg-gray-100/10 transition-all"
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1 }}
                             >
                                 <div className="flex flex-col md:flex-row gap-6">
                                     {/* Car Image */}
-                                    <div className="w-full md:w-48 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl flex items-center justify-center">
-                                        <Car size={48} className="text-blue-500" />
+                                    <div className="w-full md:w-48 h-32 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-xl flex items-center justify-center">
+                                        <Car size={48} className="text-primary" />
                                     </div>
 
                                     {/* Booking Details */}
@@ -143,7 +143,7 @@ export default function MyBookingsPage() {
 
                                         <Link
                                             href={`/dashboard/bookings/${booking.id}`}
-                                            className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-400 transition-colors font-medium"
+                                            className="inline-flex items-center gap-2 text-primary hover:text-blue-400 transition-colors font-medium"
                                         >
                                             View Details
                                             <ArrowRight size={16} />
@@ -159,7 +159,7 @@ export default function MyBookingsPage() {
                             <p className="text-gray-400 mb-6">Try adjusting your filters or search query</p>
                             <Link
                                 href="/fleet"
-                                className="inline-block btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-3 rounded-xl font-bold"
+                                className="inline-block btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary px-8 py-3 rounded-xl font-bold"
                             >
                                 Browse Fleet
                             </Link>

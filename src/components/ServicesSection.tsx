@@ -52,10 +52,10 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-gray-50 dark:bg-white relative overflow-hidden">
+    <section id="services" className="py-24 bg-gray-50  relative overflow-hidden transition-colors duration-300">
       {/* Background patterns */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-100 to-blue-100"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-100 to-blue-100  "></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -66,10 +66,10 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-900 mb-6">
-            Why Choose <span className="text-blue-500">Ryde?</span>
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900  mb-6">
+            Why Choose <span className="text-primary">Ryde?</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600  max-w-3xl mx-auto leading-relaxed">
             We're committed to providing exceptional car rental services with customer satisfaction at the heart of everything we do
           </p>
         </motion.div>
@@ -87,7 +87,7 @@ export default function ServicesSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
               >
-                <div className="card-3d bg-white dark:bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-100">
+                <div className="card-3d bg-white  rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 ">
                   {/* Image section */}
                   <div className="relative h-40 overflow-hidden">
                     <Image
@@ -100,27 +100,27 @@ export default function ServicesSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent"></div>
 
                     {/* Icon overlay */}
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full p-3">
-                      <Icon className="w-6 h-6 text-blue-500" />
+                    <div className="absolute top-4 left-4 bg-gray-100/90  backdrop-blur-sm rounded-full p-3">
+                      <Icon className="w-6 h-6 text-primary" />
                     </div>
                   </div>
 
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-900 mb-3 group-hover:text-blue-500 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900  mb-3 group-hover:text-primary transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
+                    <p className="text-gray-600  mb-4 leading-relaxed">{service.description}</p>
 
                     <div className="space-y-2 mb-6">
                       {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center text-sm text-gray-600">
+                        <div key={featureIndex} className="flex items-center text-sm text-gray-600 ">
                           <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                           <span>{feature}</span>
                         </div>
                       ))}
                     </div>
 
-                    <Link href="/services" className="text-blue-500 font-semibold flex items-center group-hover:text-blue-600 transition-colors">
+                    <Link href="/services" className="text-primary font-semibold flex items-center group-hover:text-primary-dark transition-colors">
                       Learn More
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -147,10 +147,10 @@ export default function ServicesSection() {
               height={400}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-500/90"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-primary/90"></div>
           </div>
 
-          <div className="relative z-10 p-16 text-center text-white">
+          <div className="relative z-10 p-16 text-center text-text-primary">
             <motion.h3
               className="text-4xl md:text-5xl font-bold mb-6"
               initial={{ opacity: 0, y: 30 }}
@@ -180,7 +180,7 @@ export default function ServicesSection() {
             >
               <Link href="/fleet">
                 <motion.div
-                  className="btn-modern bg-white text-blue-500 px-8 py-4 rounded-xl hover:bg-gray-100 transition-all duration-300 font-semibold text-lg shadow-xl cursor-pointer"
+                  className="btn-modern bg-white text-primary px-8 py-4 rounded-xl hover:bg-gray-100 transition-all duration-300 font-semibold text-lg shadow-xl cursor-pointer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -188,7 +188,7 @@ export default function ServicesSection() {
                 </motion.div>
               </Link>
               <motion.button
-                className="btn-modern border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-blue-500 transition-all duration-300 font-semibold text-lg"
+                className="btn-modern border-2 border-white text-text-primary px-8 py-4 rounded-xl hover:bg-white hover:text-primary transition-all duration-300 font-semibold text-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

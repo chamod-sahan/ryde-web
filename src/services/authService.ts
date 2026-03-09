@@ -108,6 +108,9 @@ class AuthService {
         } catch (error) {
             console.error('Registration error:', error);
             throw error;
+        } finally {
+            // Dispatch event to notify components
+            window.dispatchEvent(new Event('auth-change'));
         }
     }
 

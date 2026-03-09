@@ -33,7 +33,7 @@ export default function LocationsPage() {
     ];
 
     return (
-        <div className="relative min-h-screen bg-black text-white pt-24 pb-12">
+        <div className="relative min-h-screen bg-background text-text-primary pt-24 pb-12">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4">
@@ -45,7 +45,7 @@ export default function LocationsPage() {
                     Our Locations
                 </motion.h1>
                 <motion.p
-                    className="text-xl text-center text-gray-300 mb-12 max-w-2xl mx-auto"
+                    className="text-xl text-center text-gray-500 mb-12 max-w-2xl mx-auto"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2 }}
@@ -62,17 +62,17 @@ export default function LocationsPage() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.2 }}
                         >
-                            <div className="bg-blue-500/20 p-4 rounded-full">
-                                <MapPin className="w-8 h-8 text-blue-500" />
+                            <div className="bg-primary/20 p-4 rounded-full">
+                                <MapPin className="w-8 h-8 text-primary" />
                             </div>
                             <div>
                                 <h3 className="text-2xl font-bold mb-2">{loc.name}</h3>
-                                <p className="text-gray-300 mb-4">{loc.address}</p>
-                                <div className="flex items-center gap-2 text-gray-400 mb-2">
+                                <p className="text-gray-600 mb-4">{loc.address}</p>
+                                <div className="flex items-center gap-2 text-gray-600 mb-2">
                                     <Phone size={16} />
                                     <span>{loc.phone}</span>
                                 </div>
-                                <div className="flex items-center gap-2 text-gray-400">
+                                <div className="flex items-center gap-2 text-gray-600">
                                     <Clock size={16} />
                                     <span>{loc.hours}</span>
                                 </div>
@@ -90,8 +90,8 @@ export default function LocationsPage() {
                 >
                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30"></div>
                     <div className="relative z-10 text-center">
-                        <p className="text-2xl font-bold text-white mb-2">Interactive Map Loading...</p>
-                        <p className="text-gray-400">View real-time availability across our network</p>
+                        <p className="text-2xl font-bold text-text-primary mb-2">Interactive Map Loading...</p>
+                        <p className="text-gray-600">View real-time availability across our network</p>
                     </div>
                 </motion.div>
             </div>

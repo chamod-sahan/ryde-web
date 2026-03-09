@@ -150,7 +150,7 @@ function FleetPageContent() {
                         <div className="flex items-end">
                             <button
                                 onClick={fetchVehicles}
-                                className="w-full btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:from-blue-700 hover:to-blue-600"
+                                className="w-full btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:from-blue-700 hover:to-primary-dark"
                             >
                                 <Search size={20} />
                                 Update Search
@@ -158,7 +158,7 @@ function FleetPageContent() {
                         </div>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row gap-4 items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-4">
+                    <div className="flex flex-col lg:flex-row gap-4 items-center justify-between border-t border-gray-200  pt-4">
                         {/* Sort */}
                         <div className="flex items-center gap-2 w-full lg:w-auto">
                             <span className="text-sm text-text-secondary whitespace-nowrap">Sort by:</span>
@@ -182,14 +182,14 @@ function FleetPageContent() {
                         <div className="flex gap-2">
                             <button
                                 onClick={() => setViewMode('grid')}
-                                className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-primary text-white' : 'bg-surface/50 text-text-secondary hover:bg-surface/80'
+                                className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-primary text-text-primary' : 'bg-surface/50 text-text-secondary hover:bg-surface/80'
                                     }`}
                             >
                                 <Grid3x3 size={20} />
                             </button>
                             <button
                                 onClick={() => setViewMode('list')}
-                                className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-primary text-white' : 'bg-surface/50 text-text-secondary hover:bg-surface/80'
+                                className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-primary text-text-primary' : 'bg-surface/50 text-text-secondary hover:bg-surface/80'
                                     }`}
                             >
                                 <List size={20} />
@@ -201,7 +201,7 @@ function FleetPageContent() {
                 {/* Loading State */}
                 {loading && (
                     <div className="flex justify-center py-20">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
                     </div>
                 )}
 
@@ -209,10 +209,10 @@ function FleetPageContent() {
                 {!loading && error && (
                     <div className="text-center py-20">
                         <div className="text-red-500 text-xl font-semibold mb-2">Oops! Something went wrong.</div>
-                        <p className="text-gray-500 dark:text-gray-400 mb-6">{error}</p>
+                        <p className="text-gray-500  mb-6">{error}</p>
                         <button
                             onClick={fetchVehicles}
-                            className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                            className="bg-primary text-text-primary px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors"
                         >
                             Try Again
                         </button>
@@ -232,7 +232,7 @@ function FleetPageContent() {
                         {vehicles.map((car, i) => (
                             <motion.div
                                 key={car.id}
-                                className="glass-premium rounded-2xl overflow-hidden hover:bg-white/10 dark:hover:bg-white/10 transition-all border border-transparent hover:border-blue-500/30"
+                                className="glass-premium rounded-2xl overflow-hidden hover:bg-gray-100/10  transition-all border border-transparent hover:border-primary/30"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.05 }}
@@ -240,7 +240,7 @@ function FleetPageContent() {
                                 {viewMode === 'grid' ? (
                                     // Grid View
                                     <>
-                                        <div className="relative h-48 bg-gray-200 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                                        <div className="relative h-48 bg-gray-200  flex items-center justify-center overflow-hidden">
                                             {car.colorImages && car.colorImages.length > 0 ? (
                                                 <img
                                                     src={car.colorImages[0].imageUrl}
@@ -251,40 +251,40 @@ function FleetPageContent() {
                                                 <Shield size={64} className="text-gray-400/50" />
                                             )}
 
-                                            <div className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                                            <div className="absolute top-4 right-4 bg-primary text-text-primary px-3 py-1 rounded-full text-sm font-bold shadow-lg">
                                                 {car.vehicleYear}
                                             </div>
                                         </div>
                                         <div className="p-6">
                                             <div className="flex justify-between items-start mb-3">
                                                 <div>
-                                                    <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{car.bodyTypeName}</div>
-                                                    <Link href={`/fleet/${car.id}`} className="hover:text-blue-500 transition-colors">
-                                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">{car.vehicleMakeName} {car.vehicleModel}</h3>
+                                                    <div className="text-xs text-gray-500  mb-1">{car.bodyTypeName}</div>
+                                                    <Link href={`/fleet/${car.id}`} className="hover:text-primary transition-colors">
+                                                        <h3 className="text-xl font-bold text-gray-900 ">{car.vehicleMakeName} {car.vehicleModel}</h3>
                                                     </Link>
                                                 </div>
                                                 <div className="flex items-center gap-1">
-                                                    <Star size={16} fill={COLORS.primary} className="text-blue-500" />
-                                                    <span className="font-bold text-gray-900 dark:text-white">{car.averageRating || 'New'}</span>
+                                                    <Star size={16} fill={COLORS.primary} className="text-primary" />
+                                                    <span className="font-bold text-gray-900 ">{car.averageRating || 'New'}</span>
                                                 </div>
                                             </div>
 
                                             <div className="grid grid-cols-2 gap-3 mb-4 text-sm text-text-secondary">
                                                 {/* Placeholder for seats/transmision if not in API, usually mapped from body type or description if needed */}
-                                                <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400">
+                                                <div className="flex items-center gap-1 text-gray-500 ">
                                                     <MapPin size={14} />
                                                     <span className="truncate">{car.location}</span>
                                                 </div>
                                             </div>
 
-                                            <div className="flex justify-between items-center pt-4 border-t border-gray-300 dark:border-gray-700">
+                                            <div className="flex justify-between items-center pt-4 border-t border-gray-300 ">
                                                 <div>
-                                                    <div className="text-xs text-gray-500 dark:text-gray-400">Daily Rate</div>
-                                                    <div className="text-2xl font-bold text-blue-500">${car.dailyRentalPrice}<span className="text-sm text-gray-500 dark:text-gray-400">/day</span></div>
+                                                    <div className="text-xs text-gray-500 ">Daily Rate</div>
+                                                    <div className="text-2xl font-bold text-primary">${car.dailyRentalPrice}<span className="text-sm text-gray-500 ">/day</span></div>
                                                 </div>
                                                 <button
                                                     onClick={() => handleBookNow(car)}
-                                                    className="btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-2 rounded-xl font-bold flex items-center gap-2 hover:shadow-lg transition-all"
+                                                    className="btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary px-6 py-2 rounded-xl font-bold flex items-center gap-2 hover:shadow-lg transition-all"
                                                 >
                                                     Book Now
                                                     <ArrowRight size={16} />
@@ -295,7 +295,7 @@ function FleetPageContent() {
                                 ) : (
                                     // List View
                                     <div className="flex flex-col md:flex-row gap-6 p-6">
-                                        <div className="w-full md:w-64 h-40 bg-gray-200 dark:bg-gray-800 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
+                                        <div className="w-full md:w-64 h-40 bg-gray-200  rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
                                             {car.colorImages && car.colorImages.length > 0 ? (
                                                 <img
                                                     src={car.colorImages[0].imageUrl}
@@ -309,34 +309,34 @@ function FleetPageContent() {
                                         <div className="flex-1">
                                             <div className="flex justify-between items-start mb-3">
                                                 <div>
-                                                    <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{car.bodyTypeName} • {car.vehicleYear}</div>
-                                                    <Link href={`/fleet/${car.id}`} className="hover:text-blue-500 transition-colors">
-                                                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{car.vehicleMakeName} {car.vehicleModel}</h3>
+                                                    <div className="text-xs text-gray-500  mb-1">{car.bodyTypeName} • {car.vehicleYear}</div>
+                                                    <Link href={`/fleet/${car.id}`} className="hover:text-primary transition-colors">
+                                                        <h3 className="text-2xl font-bold text-gray-900 ">{car.vehicleMakeName} {car.vehicleModel}</h3>
                                                     </Link>
                                                 </div>
                                                 <div className="flex items-center gap-1">
-                                                    <Star size={16} fill={COLORS.primary} className="text-blue-500" />
-                                                    <span className="font-bold text-gray-900 dark:text-white">{car.averageRating || 'New'}</span>
+                                                    <Star size={16} fill={COLORS.primary} className="text-primary" />
+                                                    <span className="font-bold text-gray-900 ">{car.averageRating || 'New'}</span>
                                                 </div>
                                             </div>
 
-                                            <div className="flex gap-6 mb-4 text-sm text-gray-500 dark:text-gray-400">
+                                            <div className="flex gap-6 mb-4 text-sm text-gray-500 ">
                                                 <div className="flex items-center gap-2">
                                                     <MapPin size={16} />
                                                     {car.location}
                                                 </div>
                                             </div>
 
-                                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">{car.description}</p>
+                                            <p className="text-sm text-gray-500  mb-4 line-clamp-2">{car.description}</p>
 
                                             <div className="flex justify-between items-center">
                                                 <div>
-                                                    <div className="text-xs text-gray-500 dark:text-gray-400">Daily Rate</div>
-                                                    <div className="text-3xl font-bold text-blue-500">${car.dailyRentalPrice}<span className="text-sm text-gray-500 dark:text-gray-400">/day</span></div>
+                                                    <div className="text-xs text-gray-500 ">Daily Rate</div>
+                                                    <div className="text-3xl font-bold text-primary">${car.dailyRentalPrice}<span className="text-sm text-gray-500 ">/day</span></div>
                                                 </div>
                                                 <button
                                                     onClick={() => handleBookNow(car)}
-                                                    className="btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-3 rounded-xl font-bold flex items-center gap-2 hover:shadow-lg transition-all"
+                                                    className="btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary px-8 py-3 rounded-xl font-bold flex items-center gap-2 hover:shadow-lg transition-all"
                                                 >
                                                     Book Now
                                                     <ArrowRight size={16} />
@@ -355,7 +355,7 @@ function FleetPageContent() {
                     <div className="glass-premium p-12 rounded-2xl text-center">
                         <Shield size={64} className="text-gray-600 mx-auto mb-4" />
                         <h3 className="text-xl font-bold mb-2">No vehicles found</h3>
-                        <p className="text-gray-500 dark:text-gray-400 mb-6">Try adjusting your dates or location</p>
+                        <p className="text-gray-500  mb-6">Try adjusting your dates or location</p>
                     </div>
                 )}
             </div>
@@ -377,8 +377,8 @@ function FleetPageContent() {
 export default function FleetPage() {
     return (
         <Suspense fallback={
-            <div className="flex justify-center py-20 bg-black min-h-screen text-white pt-24">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+            <div className="flex justify-center py-20 bg-background min-h-screen text-text-primary pt-24">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
             </div>
         }>
             <FleetPageContent />

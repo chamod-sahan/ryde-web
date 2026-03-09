@@ -69,7 +69,7 @@ export default function DocumentsPage() {
     ];
 
     return (
-        <div className="relative min-h-screen bg-black text-white pt-24 pb-12">
+        <div className="relative min-h-screen bg-background text-text-primary pt-24 pb-12">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4 max-w-4xl">
@@ -111,7 +111,7 @@ export default function DocumentsPage() {
 
                                 <div className="flex gap-3">
                                     <label className="flex-1 cursor-pointer">
-                                        <div className="border-2 border-dashed border-gray-700 hover:border-blue-500 rounded-xl p-6 text-center transition-colors">
+                                        <div className="border-2 border-dashed border-gray-700 hover:border-primary rounded-xl p-6 text-center transition-colors">
                                             <Upload className="mx-auto mb-2 text-gray-400" size={32} />
                                             <p className="text-sm text-gray-400">
                                                 {uploaded ? 'Replace Document' : 'Click to upload or drag and drop'}
@@ -126,7 +126,7 @@ export default function DocumentsPage() {
                                         />
                                     </label>
                                     {uploaded && (
-                                        <button className="px-6 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-colors flex items-center gap-2">
+                                        <button className="px-6 py-3 bg-gray-100/5 hover:bg-gray-100/10 rounded-xl transition-colors flex items-center gap-2">
                                             <Eye size={20} />
                                             View
                                         </button>
@@ -139,13 +139,13 @@ export default function DocumentsPage() {
 
                 {/* Info Box */}
                 <motion.div
-                    className="glass-premium p-6 rounded-2xl bg-blue-500/10 border border-blue-500/30"
+                    className="glass-premium p-6 rounded-2xl bg-primary/10 border border-primary/30"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
                 >
                     <h3 className="font-bold mb-2 flex items-center gap-2">
-                        <FileText className="text-blue-500" />
+                        <FileText className="text-primary" />
                         Document Requirements
                     </h3>
                     <ul className="text-sm text-gray-300 space-y-1">

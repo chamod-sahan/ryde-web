@@ -265,34 +265,34 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     onClick={onClose}
-                    className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                    className="absolute inset-0 bg-gray-100/40 backdrop-blur-sm"
                 />
 
                 <motion.div
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
-                    className="relative w-full max-w-2xl bg-[#0f1115] border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+                    className="relative w-full max-w-2xl bg-white border border-border rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
                 >
                     {/* Header */}
-                    <div className="p-6 border-b border-white/10 flex justify-between items-center">
+                    <div className="p-6 border-b border-border flex justify-between items-center bg-white">
                         <div>
-                            <h2 className="text-2xl font-bold text-white">Complete Booking</h2>
-                            <p className="text-gray-400 text-sm">Step {step === 'insurance' ? 1 : step === 'equipment' ? 2 : step === 'address' ? 3 : 4} of 4</p>
+                            <h2 className="text-2xl font-bold text-text-primary">Complete Booking</h2>
+                            <p className="text-text-secondary text-sm">Step {step === 'insurance' ? 1 : step === 'equipment' ? 2 : step === 'address' ? 3 : 4} of 4</p>
                         </div>
-                        <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors">
-                            <X size={24} className="text-gray-400" />
+                        <button onClick={onClose} className="p-2 hover:bg-surface-hover rounded-full transition-colors">
+                            <X size={24} className="text-text-secondary" />
                         </button>
                     </div>
 
                     {/* Content */}
-                    <div className="flex-1 overflow-y-auto p-6">
+                    <div className="flex-1 overflow-y-auto p-6 bg-white">
                         {error && (
-                            <div className="mb-4 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-sm flex flex-col gap-3">
+                            <div className="mb-4 p-4 bg-red-50 border border-red-100 rounded-xl text-red-600 text-sm flex flex-col gap-3">
                                 <span>{error}</span>
                                 {(error.includes("Session expired") || error.includes("session has expired")) && (
                                     <Link href="/signin">
-                                        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold w-fit hover:bg-blue-500 transition-colors">
+                                        <button className="bg-primary-dark text-white px-4 py-2 rounded-lg font-bold w-fit hover:bg-primary transition-colors">
                                             Sign In
                                         </button>
                                     </Link>
@@ -309,33 +309,33 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                 {/* Step 1: Insurance */}
                                 {step === 'insurance' && (
                                     <div className="space-y-4">
-                                        <h3 className="text-xl font-bold text-white mb-4">Select Insurance</h3>
+                                        <h3 className="text-xl font-bold text-text-primary mb-4">Select Insurance</h3>
                                         <div className="grid gap-4">
                                             {insurances.map(ins => (
                                                 <div
                                                     key={ins.id}
                                                     onClick={() => setSelectedInsurance(ins)}
                                                     className={`p-4 rounded-xl border cursor-pointer transition-all ${selectedInsurance?.id === ins.id
-                                                        ? 'bg-blue-600/20 border-blue-500'
-                                                        : 'bg-white/5 border-white/10 hover:border-white/20'
+                                                        ? 'bg-blue-50 border-primary'
+                                                        : 'bg-surface border-border hover:border-blue-200'
                                                         }`}
                                                 >
                                                     <div className="flex justify-between items-start mb-2">
                                                         <div className="flex items-center gap-2">
-                                                            <h4 className="font-bold text-white">{ins.insuranceName}</h4>
+                                                            <h4 className="font-bold text-text-primary">{ins.insuranceName}</h4>
                                                             {ins.isIncluded && (
-                                                                <span className="text-xs bg-green-500/20 text-green-500 px-2 py-0.5 rounded-full">Included</span>
+                                                                <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Included</span>
                                                             )}
                                                         </div>
-                                                        <div className="text-blue-400 font-bold">
+                                                        <div className="text-primary-dark font-bold">
                                                             ${ins.dailyPrice}/day
                                                         </div>
                                                     </div>
-                                                    <p className="text-sm text-gray-400 mb-2">{ins.insuranceDescription}</p>
+                                                    <p className="text-sm text-text-secondary mb-2">{ins.insuranceDescription}</p>
                                                     <div className="flex flex-wrap gap-2">
                                                         {ins.coveragePoints.map((point, i) => (
-                                                            <div key={i} className="flex items-center gap-1 text-xs text-gray-400 bg-white/5 px-2 py-1 rounded">
-                                                                <Check size={12} className="text-blue-500" />
+                                                            <div key={i} className="flex items-center gap-1 text-xs text-text-secondary bg-surface-hover px-2 py-1 rounded">
+                                                                <Check size={12} className="text-primary-dark" />
                                                                 {point}
                                                             </div>
                                                         ))}
@@ -349,17 +349,17 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                 {step === 'equipment' && (
                                     <div className="space-y-6">
                                         <div className="flex justify-between items-end mb-2">
-                                            <h3 className="text-xl font-bold text-white">Add Extras</h3>
-                                            <span className="text-xs text-gray-500 uppercase font-bold tracking-wider">Enhance your journey</span>
+                                            <h3 className="text-xl font-bold text-text-primary">Add Extras</h3>
+                                            <span className="text-xs text-text-secondary uppercase font-bold tracking-wider">Enhance your journey</span>
                                         </div>
 
                                         {equipments.length === 0 ? (
-                                            <div className="bg-white/5 border border-white/10 rounded-2xl p-12 text-center">
-                                                <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
-                                                    <Info className="text-gray-500" size={32} />
+                                            <div className="bg-surface border border-border rounded-2xl p-12 text-center">
+                                                <div className="w-16 h-16 bg-surface-hover rounded-full flex items-center justify-center mx-auto mb-4">
+                                                    <Info className="text-text-muted" size={32} />
                                                 </div>
-                                                <h4 className="text-white font-bold mb-2">No Extras Available</h4>
-                                                <p className="text-gray-400 text-sm">This vehicle doesn't have any additional equipment options at the moment.</p>
+                                                <h4 className="text-text-primary font-bold mb-2">No Extras Available</h4>
+                                                <p className="text-text-secondary text-sm">This vehicle doesn't have any additional equipment options at the moment.</p>
                                             </div>
                                         ) : (
                                             <div className="grid gap-4">
@@ -375,39 +375,39 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                                             key={itemId}
                                                             whileHover={{ scale: 1.01 }}
                                                             className={`flex items-center justify-between p-5 rounded-2xl border transition-all ${isSelected
-                                                                ? 'bg-blue-600/10 border-blue-500/50 shadow-lg shadow-blue-500/10'
-                                                                : 'bg-white/5 border-white/10 hover:border-white/20'
+                                                                ? 'bg-blue-50 border-primary/50 shadow-lg shadow-blue-500/5'
+                                                                : 'bg-surface border-border hover:border-blue-200'
                                                                 }`}
                                                         >
                                                             <div className="flex items-center gap-4">
-                                                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${isSelected ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30' : 'bg-white/5 text-gray-500'
+                                                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${isSelected ? 'bg-primary-dark text-white shadow-lg shadow-blue-600/30' : 'bg-surface-hover text-text-muted'
                                                                     }`}>
                                                                     <Plus size={24} />
                                                                 </div>
                                                                 <div>
-                                                                    <h4 className="font-bold text-white text-lg">{item.equipmentName}</h4>
+                                                                    <h4 className="font-bold text-text-primary text-lg">{item.equipmentName}</h4>
                                                                     <div className="flex items-center gap-2">
-                                                                        <span className="text-blue-400 font-bold">${price.toFixed(2)}</span>
-                                                                        <span className="text-gray-500 text-xs uppercase tracking-tighter">Per Trip</span>
+                                                                        <span className="text-primary-dark font-bold">${price.toFixed(2)}</span>
+                                                                        <span className="text-text-secondary text-xs uppercase tracking-tighter">Per Trip</span>
                                                                     </div>
-                                                                    {item.notes && <p className="text-xs text-gray-500 mt-1 italic">{item.notes}</p>}
+                                                                    {item.notes && <p className="text-xs text-text-secondary mt-1 italic">{item.notes}</p>}
                                                                 </div>
                                                             </div>
 
                                                             <div className="flex items-center gap-3">
                                                                 {isSelected ? (
-                                                                    <div className="flex items-center gap-3 bg-black/40 border border-white/10 rounded-xl p-1 px-2">
+                                                                    <div className="flex items-center gap-3 bg-surface-hover border border-border rounded-xl p-1 px-2">
                                                                         <button
                                                                             onClick={() => handleEquipmentChange(itemId, -1, maxQty)}
-                                                                            className="p-1.5 hover:bg-white/10 rounded-lg text-gray-400 hover:text-white transition-colors"
+                                                                            className="p-1.5 hover:bg-white rounded-lg text-text-secondary hover:text-text-primary transition-colors"
                                                                         >
                                                                             <Minus size={16} />
                                                                         </button>
-                                                                        <span className="w-6 text-center font-bold text-white">{quantity}</span>
+                                                                        <span className="w-6 text-center font-bold text-text-primary">{quantity}</span>
                                                                         <button
                                                                             onClick={() => handleEquipmentChange(itemId, 1, maxQty)}
                                                                             disabled={quantity >= maxQty}
-                                                                            className="p-1.5 hover:bg-white/10 rounded-lg text-gray-400 hover:text-white disabled:opacity-30 transition-colors"
+                                                                            className="p-1.5 hover:bg-white rounded-lg text-text-secondary hover:text-text-primary disabled:opacity-30 transition-colors"
                                                                         >
                                                                             <Plus size={16} />
                                                                         </button>
@@ -415,7 +415,7 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                                                 ) : (
                                                                     <button
                                                                         onClick={() => handleEquipmentChange(itemId, 1, maxQty)}
-                                                                        className="px-6 py-2.5 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-white font-bold transition-all hover:border-white/30"
+                                                                        className="px-6 py-2.5 bg-white hover:bg-primary-dark hover:text-white border border-border rounded-xl text-text-primary font-bold transition-all"
                                                                     >
                                                                         Add
                                                                     </button>
@@ -432,13 +432,13 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                 {/* Step 3: Address */}
                                 {step === 'address' && (
                                     <div className="space-y-6">
-                                        <h3 className="text-xl font-bold text-white mb-4">Delivery Details</h3>
+                                        <h3 className="text-xl font-bold text-text-primary mb-4">Delivery Details</h3>
 
                                         <div className="space-y-4">
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-400 mb-2">Pickup Address</label>
+                                                <label className="block text-sm font-medium text-text-secondary mb-2">Pickup Address</label>
                                                 <div className="relative">
-                                                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+                                                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted">
                                                         <MapPin size={18} />
                                                     </div>
                                                     <input
@@ -446,7 +446,7 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                                         value={pickupAddress}
                                                         onChange={(e) => setPickupAddress(e.target.value)}
                                                         placeholder="Enter pickup location"
-                                                        className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white focus:border-blue-500 outline-none transition-colors"
+                                                        className="w-full bg-surface border border-border rounded-xl pl-12 pr-4 py-3 text-text-primary focus:border-primary outline-none transition-colors"
                                                     />
                                                 </div>
                                             </div>
@@ -454,12 +454,12 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                             <div className="flex items-center gap-2 py-2">
                                                 <button
                                                     onClick={() => setSameAsPickup(!sameAsPickup)}
-                                                    className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${sameAsPickup ? 'bg-blue-600 border-blue-600' : 'border-white/20'
+                                                    className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${sameAsPickup ? 'bg-primary-dark border-blue-600' : 'border-border bg-white'
                                                         }`}
                                                 >
                                                     {sameAsPickup && <Check size={14} className="text-white" />}
                                                 </button>
-                                                <span className="text-sm text-gray-400">Return to same location</span>
+                                                <span className="text-sm text-text-secondary">Return to same location</span>
                                             </div>
 
                                             {!sameAsPickup && (
@@ -467,9 +467,9 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                                     initial={{ opacity: 0, y: -10 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                 >
-                                                    <label className="block text-sm font-medium text-gray-400 mb-2">Drop-off Address</label>
+                                                    <label className="block text-sm font-medium text-text-secondary mb-2">Drop-off Address</label>
                                                     <div className="relative">
-                                                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+                                                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted">
                                                             <MapPin size={18} />
                                                         </div>
                                                         <input
@@ -477,7 +477,7 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                                             value={dropoffAddress}
                                                             onChange={(e) => setDropoffAddress(e.target.value)}
                                                             placeholder="Enter drop-off location"
-                                                            className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white focus:border-blue-500 outline-none transition-colors"
+                                                            className="w-full bg-surface border border-border rounded-xl pl-12 pr-4 py-3 text-text-primary focus:border-primary outline-none transition-colors"
                                                         />
                                                     </div>
                                                 </motion.div>
@@ -489,51 +489,51 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                 {/* Step 4: Summary */}
                                 {step === 'summary' && (
                                     <div className="space-y-6">
-                                        <h3 className="text-xl font-bold text-white mb-4">Booking Summary</h3>
+                                        <h3 className="text-xl font-bold text-text-primary mb-4">Booking Summary</h3>
 
-                                        <div className="bg-white/5 rounded-xl p-4 space-y-4">
+                                        <div className="bg-surface rounded-xl p-4 space-y-4 border border-border">
                                             {/* Rental Details */}
-                                            <div className="border-b border-white/10 pb-4">
+                                            <div className="border-b border-border pb-4">
                                                 <div className="flex justify-between text-sm mb-4 gap-4">
                                                     <div className="flex-1">
-                                                        <label className="block text-xs text-gray-500 mb-1 uppercase font-bold">Pickup</label>
+                                                        <label className="block text-xs text-text-muted mb-1 uppercase font-bold">Pickup</label>
                                                         <input
                                                             type="date"
                                                             value={formatDateForInput(localStartDate)}
                                                             min={formatDateForInput(new Date())}
                                                             onChange={(e) => handleDateChange('start', e.target.value)}
-                                                            className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-blue-500 outline-none transition-colors"
+                                                            className="w-full bg-white border border-border rounded-lg px-3 py-2 text-sm text-text-primary focus:border-primary outline-none transition-colors"
                                                         />
                                                     </div>
                                                     <div className="flex-1">
-                                                        <label className="block text-xs text-gray-500 mb-1 uppercase font-bold">Drop-off</label>
+                                                        <label className="block text-xs text-text-muted mb-1 uppercase font-bold">Drop-off</label>
                                                         <input
                                                             type="date"
                                                             value={formatDateForInput(localEndDate)}
                                                             min={formatDateForInput(localStartDate)}
                                                             onChange={(e) => handleDateChange('end', e.target.value)}
-                                                            className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:border-blue-500 outline-none transition-colors"
+                                                            className="w-full bg-white border border-border rounded-lg px-3 py-2 text-sm text-text-primary focus:border-primary outline-none transition-colors"
                                                         />
                                                     </div>
                                                 </div>
                                                 <div className="flex justify-between text-sm mb-2">
-                                                    <span className="text-gray-400">Duration</span>
+                                                    <span className="text-text-secondary">Duration</span>
                                                     <span>{rentalDays} Days</span>
                                                 </div>
-                                                <div className="flex justify-between text-lg font-bold">
+                                                <div className="flex justify-between text-lg font-bold text-text-primary">
                                                     <span>Vehicle Total</span>
                                                     <span>${(dailyPrice * rentalDays).toFixed(2)}</span>
                                                 </div>
                                             </div>
 
                                             {/* Location Details */}
-                                            <div className="border-b border-white/10 pb-4">
+                                            <div className="border-b border-border pb-4 text-text-primary">
                                                 <div className="flex justify-between text-sm mb-2">
-                                                    <span className="text-gray-400">Pickup</span>
+                                                    <span className="text-text-secondary">Pickup</span>
                                                     <span className="text-right max-w-[200px] truncate">{pickupAddress || "Not specified"}</span>
                                                 </div>
                                                 <div className="flex justify-between text-sm">
-                                                    <span className="text-gray-400">Drop-off</span>
+                                                    <span className="text-text-secondary">Drop-off</span>
                                                     <span className="text-right max-w-[200px] truncate">
                                                         {sameAsPickup ? (pickupAddress || "Not specified") : (dropoffAddress || "Not specified")}
                                                     </span>
@@ -542,12 +542,12 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
 
                                             {/* Insurance */}
                                             {selectedInsurance && (
-                                                <div className="border-b border-white/10 pb-4">
+                                                <div className="border-b border-border pb-4 text-text-primary">
                                                     <div className="flex justify-between text-sm mb-1">
-                                                        <span className="text-gray-400">Insurance ({selectedInsurance.insuranceName})</span>
+                                                        <span className="text-text-secondary">Insurance ({selectedInsurance.insuranceName})</span>
                                                         <span>${(selectedInsurance.dailyPrice * rentalDays).toFixed(2)}</span>
                                                     </div>
-                                                    <div className="text-xs text-gray-500">
+                                                    <div className="text-xs text-text-muted">
                                                         ${selectedInsurance.dailyPrice}/day x {rentalDays} days
                                                     </div>
                                                 </div>
@@ -555,8 +555,8 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
 
                                             {/* Equipment */}
                                             {Object.keys(selectedEquipments).length > 0 && (
-                                                <div className="border-b border-white/10 pb-4">
-                                                    <span className="text-gray-400 text-sm block mb-2">Extras</span>
+                                                <div className="border-b border-border pb-4 text-text-primary">
+                                                    <span className="text-text-secondary text-sm block mb-2">Extras</span>
                                                     {Object.entries(selectedEquipments).map(([idStr, qty]) => {
                                                         const item = equipments.find(e => (e.id || e.extraEquipmentId) === parseInt(idStr));
                                                         if (!item) return null;
@@ -572,8 +572,8 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
 
                                             {/* Total */}
                                             <div className="flex justify-between items-center pt-2">
-                                                <span className="text-xl font-bold text-white">Total</span>
-                                                <span className="text-2xl font-bold text-blue-500">${calculateTotal().toFixed(2)}</span>
+                                                <span className="text-xl font-bold text-text-primary">Total</span>
+                                                <span className="text-2xl font-bold text-primary-dark">${calculateTotal().toFixed(2)}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -583,7 +583,7 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                     </div>
 
                     {/* Footer / Actions */}
-                    <div className="p-6 border-t border-white/10 bg-[#0f1115] flex justify-between items-center gap-4">
+                    <div className="p-6 border-t border-border bg-surface flex justify-between items-center gap-4">
                         {step !== 'insurance' ? (
                             <button
                                 onClick={() => {
@@ -591,7 +591,7 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                     else if (step === 'address') setStep('equipment');
                                     else setStep('insurance');
                                 }}
-                                className="px-6 py-3 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10 text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+                                className="px-6 py-3 rounded-xl hover:bg-surface-hover border border-border text-text-secondary hover:text-text-primary transition-colors flex items-center gap-2"
                             >
                                 <ArrowLeft size={18} />
                                 Back
@@ -604,7 +604,7 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                             <button
                                 onClick={handlePayment}
                                 disabled={processing}
-                                className="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold shadow-lg shadow-blue-500/25 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                className="px-8 py-3 bg-primary-dark hover:bg-primary text-white rounded-xl font-bold shadow-lg shadow-blue-500/25 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                             >
                                 {processing ? (
                                     <>
@@ -630,7 +630,7 @@ export default function BookingWizard({ isOpen, onClose, vehicleId, dailyPrice, 
                                     (step === 'address' && !pickupAddress) ||
                                     (step === 'address' && !sameAsPickup && !dropoffAddress)
                                 }
-                                className="px-8 py-3 bg-white text-black hover:bg-gray-200 rounded-xl font-bold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                className="px-8 py-3 bg-primary text-white hover:bg-primary-dark rounded-xl font-bold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                             >
                                 Next Step
                                 <ArrowRight size={18} />

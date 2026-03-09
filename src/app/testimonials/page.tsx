@@ -71,7 +71,7 @@ export default function TestimonialsPage() {
     ];
 
     return (
-        <div className="relative min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white pt-24 pb-12 transition-colors duration-300">
+        <div className="relative min-h-screen bg-white  text-gray-900  pt-24 pb-12 transition-colors duration-300">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4">
@@ -81,7 +81,7 @@ export default function TestimonialsPage() {
                     className="text-center mb-12"
                 >
                     <h1 className="text-4xl md:text-6xl font-bold mb-4">What Our Clients Say</h1>
-                    <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+                    <p className="text-gray-600  text-lg max-w-2xl mx-auto">
                         Don't just take our word for it. Here's what our satisfied customers have to say about their Ryde experience.
                     </p>
                 </motion.div>
@@ -97,7 +97,7 @@ export default function TestimonialsPage() {
                             transition={{ delay: i * 0.1 }}
                         >
                             <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">{stat.value}</div>
-                            <div className="text-gray-400 text-sm">{stat.label}</div>
+                            <div className="text-gray-600 text-sm">{stat.label}</div>
                         </motion.div>
                     ))}
                 </div>
@@ -107,28 +107,28 @@ export default function TestimonialsPage() {
                     {testimonials.map((testimonial, i) => (
                         <motion.div
                             key={testimonial.id}
-                            className="glass-premium p-6 rounded-2xl hover:bg-white/10 transition-all"
+                            className="glass-premium p-6 rounded-2xl hover:bg-gray-100/10 transition-all"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
                         >
-                            <Quote className="text-blue-500 mb-4" size={32} />
+                            <Quote className="text-primary mb-4" size={32} />
 
                             {/* Rating */}
                             <div className="flex gap-1 mb-4">
                                 {[...Array(testimonial.rating)].map((_, i) => (
-                                    <Star key={i} size={16} fill={COLORS.primary} className="text-blue-500" />
+                                    <Star key={i} size={16} fill={COLORS.primary} className="text-primary" />
                                 ))}
                             </div>
 
                             {/* Review Text */}
-                            <p className="text-gray-300 mb-6 leading-relaxed">{testimonial.text}</p>
+                            <p className="text-gray-700 mb-6 leading-relaxed">{testimonial.text}</p>
 
                             {/* Customer Info */}
                             <div className="border-t border-gray-700 pt-4">
                                 <div className="font-bold">{testimonial.name}</div>
-                                <div className="text-sm text-gray-400">{testimonial.role}</div>
-                                <div className="text-xs text-gray-500 mt-2">
+                                <div className="text-sm text-gray-600">{testimonial.role}</div>
+                                <div className="text-xs text-gray-600 mt-2">
                                     {testimonial.car} • {testimonial.date}
                                 </div>
                             </div>
@@ -144,12 +144,12 @@ export default function TestimonialsPage() {
                     transition={{ delay: 0.6 }}
                 >
                     <h2 className="text-3xl font-bold mb-4">Ready to Experience Luxury?</h2>
-                    <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+                    <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
                         Join thousands of satisfied customers who trust Ryde for their luxury car rental needs.
                     </p>
                     <a
                         href="/fleet"
-                        className="inline-block btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white px-12 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all"
+                        className="inline-block btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary px-12 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all"
                     >
                         Browse Our Fleet
                     </a>

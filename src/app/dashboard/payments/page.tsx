@@ -15,11 +15,11 @@ export default function PaymentMethodsPage() {
 
     const getCardIcon = (type: string) => {
         // In production, use actual card brand logos
-        return <CreditCard className="text-blue-500" size={32} />;
+        return <CreditCard className="text-primary" size={32} />;
     };
 
     return (
-        <div className="relative min-h-screen bg-black text-white pt-24 pb-12">
+        <div className="relative min-h-screen bg-background text-text-primary pt-24 pb-12">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4 max-w-4xl">
@@ -34,7 +34,7 @@ export default function PaymentMethodsPage() {
                     </div>
                     <button
                         onClick={() => setShowAddCard(!showAddCard)}
-                        className="btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"
+                        className="btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary px-6 py-3 rounded-xl font-bold flex items-center gap-2"
                     >
                         <Plus size={20} />
                         Add Card
@@ -55,7 +55,7 @@ export default function PaymentMethodsPage() {
                                 <input
                                     type="text"
                                     placeholder="1234 5678 9012 3456"
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors"
                                     maxLength={19}
                                 />
                             </div>
@@ -65,7 +65,7 @@ export default function PaymentMethodsPage() {
                                     <input
                                         type="text"
                                         placeholder="MM/YY"
-                                        className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors"
+                                        className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors"
                                         maxLength={5}
                                     />
                                 </div>
@@ -74,7 +74,7 @@ export default function PaymentMethodsPage() {
                                     <input
                                         type="text"
                                         placeholder="123"
-                                        className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors"
+                                        className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors"
                                         maxLength={4}
                                     />
                                 </div>
@@ -84,20 +84,20 @@ export default function PaymentMethodsPage() {
                                 <input
                                     type="text"
                                     placeholder="John Doe"
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors"
                                 />
                             </div>
                             <div className="flex gap-4">
                                 <button
                                     type="submit"
-                                    className="flex-1 btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 rounded-xl font-bold"
+                                    className="flex-1 btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary py-3 rounded-xl font-bold"
                                 >
                                     Add Card
                                 </button>
                                 <button
                                     type="button"
                                     onClick={() => setShowAddCard(false)}
-                                    className="flex-1 bg-white/10 hover:bg-white/20 text-white py-3 rounded-xl font-bold transition-colors"
+                                    className="flex-1 bg-gray-100/10 hover:bg-gray-100/20 text-text-primary py-3 rounded-xl font-bold transition-colors"
                                 >
                                     Cancel
                                 </button>
@@ -123,7 +123,7 @@ export default function PaymentMethodsPage() {
                                         <div className="flex items-center gap-2">
                                             <span className="font-bold text-lg">{card.type} •••• {card.last4}</span>
                                             {card.isDefault && (
-                                                <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full flex items-center gap-1">
+                                                <span className="px-2 py-1 bg-primary/20 text-blue-400 text-xs rounded-full flex items-center gap-1">
                                                     <Star size={12} fill="currentColor" />
                                                     Default
                                                 </span>
@@ -134,7 +134,7 @@ export default function PaymentMethodsPage() {
                                 </div>
                                 <div className="flex items-center gap-2">
                                     {!card.isDefault && (
-                                        <button className="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-xl text-sm font-medium transition-colors">
+                                        <button className="px-4 py-2 bg-gray-100/5 hover:bg-gray-100/10 rounded-xl text-sm font-medium transition-colors">
                                             Set as Default
                                         </button>
                                     )}
@@ -154,7 +154,7 @@ export default function PaymentMethodsPage() {
                         <p className="text-gray-400 mb-6">Add a card to make bookings faster</p>
                         <button
                             onClick={() => setShowAddCard(true)}
-                            className="btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-3 rounded-xl font-bold"
+                            className="btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary px-8 py-3 rounded-xl font-bold"
                         >
                             Add Your First Card
                         </button>

@@ -25,13 +25,12 @@ export default function HeroSection() {
   const heroContentY = useSpring(useTransform(mouseY, [-0.5, 0.5], [-15, 15]), { stiffness: 100, damping: 20 });
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-red-600 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-white via-surface to-blue-50 overflow-hidden transition-colors duration-300">
       {/* 3D Background Images */}
       {/* Real-time 3D Background */}
       <ThreeBackground />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent pointer-events-none"></div>
 
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-4 pt-32 pb-20">
@@ -43,17 +42,17 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h2
-            className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl"
+            className="text-6xl md:text-7xl font-bold text-text-primary mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
             Your Journey
-            <span className="block text-blue-300">Starts Here</span>
+            <span className="block text-primary">Starts Here</span>
           </motion.h2>
 
           <motion.p
-            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/90"
+            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-text-primary font-semibold drop-shadow-sm"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -79,8 +78,8 @@ export default function HeroSection() {
           transition={{ delay: 1 }}
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Trusted by Thousands</h3>
-            <p className="text-white/80 text-lg">Join our growing community of satisfied customers</p>
+            <h3 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">Trusted by Thousands</h3>
+            <p className="text-text-secondary text-lg">Join our growing community of satisfied customers</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -88,35 +87,35 @@ export default function HeroSection() {
               {
                 number: "500+",
                 label: "Vehicles",
-                icon: <Car className="w-8 h-8 text-white" />
+                icon: <Car className="w-8 h-8 text-primary" />
               },
               {
                 number: "50+",
                 label: "Locations",
-                icon: <MapPin className="w-8 h-8 text-white" />
+                icon: <MapPin className="w-8 h-8 text-primary" />
               },
               {
                 number: "100K+",
                 label: "Customers",
-                icon: <Users className="w-8 h-8 text-white" />
+                icon: <Users className="w-8 h-8 text-primary" />
               },
               {
                 number: "4.8★",
                 label: "Rating",
-                icon: <Star className="w-8 h-8 text-white" />
+                icon: <Star className="w-8 h-8 text-primary" />
               }
             ].map((stat, index) => (
               <motion.div
                 key={index}
-                className="glass-premium rounded-2xl p-6 text-center group cursor-pointer flex flex-col items-center justify-center card-3d"
+                className="glass-premium rounded-2xl p-6 text-center group cursor-pointer flex flex-col items-center justify-center card-3d border border-border"
                 whileHover={{ scale: 1.05, y: -10, rotateX: 5, rotateY: 5 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
               >
-                <div className="mb-4 relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-500 to-red-500 p-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="mb-4 relative overflow-hidden rounded-xl bg-primary/10 p-3 group-hover:scale-110 transition-transform duration-300">
                   {stat.icon}
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-blue-300 mb-2">{stat.number}</div>
-                <div className="text-white/80 font-medium">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
+                <div className="text-text-secondary font-semibold">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -129,9 +128,9 @@ export default function HeroSection() {
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
+        <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center p-1">
           <motion.div
-            className="w-1.5 h-1.5 bg-white/80 rounded-full"
+            className="w-1.5 h-1.5 bg-primary/60 rounded-full"
             animate={{ y: [0, 16, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />

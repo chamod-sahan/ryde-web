@@ -35,7 +35,7 @@ export default function TrustBadges() {
                 whileHover={{ x: -5 }}
               >
                 <div className="flex-shrink-0 w-10 h-10 bg-surface/50 rounded-lg flex items-center justify-center group-hover:bg-primary transition-colors">
-                  <Icon className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+                  <Icon className="w-5 h-5 text-primary group-hover:text-text-primary transition-colors" />
                 </div>
                 <div className="flex-1">
                   <div className="text-xs font-semibold text-text-primary">{badge.label}</div>

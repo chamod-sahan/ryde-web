@@ -12,16 +12,16 @@ export default function DashboardPage() {
     ];
 
     return (
-        <div className="relative min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white pt-24 pb-12 transition-colors duration-300">
+        <div className="relative min-h-screen bg-white  text-gray-900  pt-24 pb-12 transition-colors duration-300">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4">
                 <div className="flex justify-between items-center mb-8">
                     <div>
                         <h1 className="text-4xl font-bold mb-2">Welcome Back, John</h1>
-                        <p className="text-gray-600 dark:text-gray-400">Welcome back! Here's your rental overview.</p>
+                        <p className="text-gray-600 ">Welcome back! Here's your rental overview.</p>
                     </div>
-                    <button className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl transition-colors">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-gray-100/10 hover:bg-gray-100/20 rounded-xl transition-colors">
                         <LogOut size={20} />
                         Sign Out
                     </button>
@@ -41,7 +41,7 @@ export default function DashboardPage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
                         >
-                            <stat.icon className="text-blue-500 mb-3" size={32} />
+                            <stat.icon className="text-primary mb-3" size={32} />
                             <div className="text-3xl font-bold mb-1">{stat.value}</div>
                             <div className="text-gray-400 text-sm">{stat.label}</div>
                         </motion.div>
@@ -52,7 +52,7 @@ export default function DashboardPage() {
                     <div className="lg:col-span-2">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-2xl font-bold">My Bookings</h2>
-                            <Link href="/dashboard/bookings" className="text-blue-500 hover:text-blue-400 transition-colors font-medium flex items-center gap-1">
+                            <Link href="/dashboard/bookings" className="text-primary hover:text-blue-400 transition-colors font-medium flex items-center gap-1">
                                 See All
                                 <ArrowRight size={16} />
                             </Link>
@@ -68,8 +68,8 @@ export default function DashboardPage() {
                                 >
                                     <div className="flex justify-between items-start mb-4">
                                         <div>
-                                            <div className="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-1">Booking #{booking.id}</div>
-                                            <p className="text-gray-600 dark:text-gray-400 text-sm">{booking.car}</p>
+                                            <div className="text-xs text-gray-600  flex items-center gap-1">Booking #{booking.id}</div>
+                                            <p className="text-gray-600  text-sm">{booking.car}</p>
                                         </div>
                                         <span className={`px-3 py-1 rounded-full text-sm font-bold ${booking.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'
                                             }`}>
@@ -98,16 +98,16 @@ export default function DashboardPage() {
                     <div>
                         <h2 className="text-2xl font-bold mb-6">Quick Actions</h2>
                         <div className="space-y-4">
-                            <button className="w-full glass-premium p-4 rounded-xl hover:bg-white/10 transition-colors text-left flex items-center gap-3">
-                                <User className="text-blue-500" />
+                            <button className="w-full glass-premium p-4 rounded-xl hover:bg-gray-100/10 transition-colors text-left flex items-center gap-3">
+                                <User className="text-primary" />
                                 <span>Edit Profile</span>
                             </button>
-                            <button className="w-full glass-premium p-4 rounded-xl hover:bg-white/10 transition-colors text-left flex items-center gap-3">
-                                <Settings className="text-blue-500" />
+                            <button className="w-full glass-premium p-4 rounded-xl hover:bg-gray-100/10 transition-colors text-left flex items-center gap-3">
+                                <Settings className="text-primary" />
                                 <span>Settings</span>
                             </button>
-                            <button className="w-full glass-premium p-4 rounded-xl hover:bg-white/10 transition-colors text-left flex items-center gap-3">
-                                <Calendar className="text-blue-500" />
+                            <button className="w-full glass-premium p-4 rounded-xl hover:bg-gray-100/10 transition-colors text-left flex items-center gap-3">
+                                <Calendar className="text-primary" />
                                 <span>View Calendar</span>
                             </button>
                         </div>

@@ -29,7 +29,7 @@ export default function ProfileSettingsPage() {
     };
 
     return (
-        <div className="relative min-h-screen bg-black text-white pt-24 pb-12">
+        <div className="relative min-h-screen bg-background text-text-primary pt-24 pb-12">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4 max-w-4xl">
@@ -44,7 +44,7 @@ export default function ProfileSettingsPage() {
                     </div>
                     <button
                         onClick={() => setIsEditing(!isEditing)}
-                        className="btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2"
+                        className="btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary px-6 py-3 rounded-xl font-bold flex items-center gap-2"
                     >
                         {isEditing ? (
                             <>
@@ -68,7 +68,7 @@ export default function ProfileSettingsPage() {
                         animate={{ opacity: 1, y: 0 }}
                     >
                         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                            <User className="text-blue-500" />
+                            <User className="text-primary" />
                             Personal Information
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -79,7 +79,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.firstName}
                                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                             <div>
@@ -89,7 +89,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.lastName}
                                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                             <div>
@@ -99,7 +99,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                             <div>
@@ -109,7 +109,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.phone}
                                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                             <div>
@@ -119,7 +119,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.dateOfBirth}
                                     onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                         </div>
@@ -133,7 +133,7 @@ export default function ProfileSettingsPage() {
                         transition={{ delay: 0.1 }}
                     >
                         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                            <MapPin className="text-blue-500" />
+                            <MapPin className="text-primary" />
                             Address
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -144,7 +144,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.address}
                                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                             <div>
@@ -154,7 +154,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.city}
                                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                             <div>
@@ -164,7 +164,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.state}
                                     onChange={(e) => setFormData({ ...formData, state: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                             <div>
@@ -174,7 +174,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.zipCode}
                                     onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                             <div>
@@ -184,7 +184,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.country}
                                     onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                         </div>
@@ -198,7 +198,7 @@ export default function ProfileSettingsPage() {
                         transition={{ delay: 0.2 }}
                     >
                         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                            <Calendar className="text-blue-500" />
+                            <Calendar className="text-primary" />
                             Driver's License
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -209,7 +209,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.licenseNumber}
                                     onChange={(e) => setFormData({ ...formData, licenseNumber: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                             <div>
@@ -219,7 +219,7 @@ export default function ProfileSettingsPage() {
                                     value={formData.licenseExpiry}
                                     onChange={(e) => setFormData({ ...formData, licenseExpiry: e.target.value })}
                                     disabled={!isEditing}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
                         </div>
@@ -233,14 +233,14 @@ export default function ProfileSettingsPage() {
                         >
                             <button
                                 type="submit"
-                                className="flex-1 btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 rounded-xl font-bold"
+                                className="flex-1 btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary py-3 rounded-xl font-bold"
                             >
                                 Save Changes
                             </button>
                             <button
                                 type="button"
                                 onClick={() => setIsEditing(false)}
-                                className="flex-1 bg-white/10 hover:bg-white/20 text-white py-3 rounded-xl font-bold transition-colors"
+                                className="flex-1 bg-gray-100/10 hover:bg-gray-100/20 text-text-primary py-3 rounded-xl font-bold transition-colors"
                             >
                                 Cancel
                             </button>

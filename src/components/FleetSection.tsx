@@ -100,7 +100,7 @@ export default function FleetSection() {
             name,
             description: meta.description,
             cars: cars,
-            price: `From $${minPrice}/day`,
+            price: `$${minPrice}`,
             image: meta.image,
             features: meta.features,
             rating: parseFloat(avgRating.toFixed(1)) || 5.0,
@@ -131,11 +131,11 @@ export default function FleetSection() {
   }, []);
 
   return (
-    <section id="fleet" className="py-24 bg-white dark:bg-gradient-to-br dark:from-gray-50 dark:to-gray-100 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500 rounded-full"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full"></div>
+    <section id="fleet" className="py-24 bg-surface relative overflow-hidden">
+      {/* Refined Background decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[100px]"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -146,21 +146,26 @@ export default function FleetSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-900 mb-6">
-            Our Premium <span className="text-blue-500">Fleet</span>
+          <h2 className="text-5xl md:text-6xl font-bold text-text-primary mb-6 tracking-tight">
+            Our Premium <span className="text-primary relative inline-block">
+              Fleet
+              <svg className="absolute w-full h-3 -bottom-1 left-0 text-primary opacity-20" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
+              </svg>
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed font-medium">
             Choose from our wide selection of modern, well-maintained vehicles to suit your needs and budget
           </p>
         </motion.div>
 
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20">
-            <Loader2 className="w-12 h-12 text-blue-500 animate-spin mb-4" />
-            <p className="text-gray-500">Loading our amazing fleet...</p>
+            <Loader2 className="w-12 h-12 text-primary animate-spin mb-4" />
+            <p className="text-text-secondary font-medium">Loading our amazing fleet...</p>
           </div>
         ) : error ? (
-          <div className="text-center py-20 bg-red-500/5 rounded-3xl border border-red-500/10">
+          <div className="text-center py-20 bg-red-50 rounded-3xl border border-red-100">
             <p className="text-red-500 font-semibold">{error}</p>
           </div>
         ) : (
@@ -168,73 +173,75 @@ export default function FleetSection() {
             {categories.map((category, index) => (
               <motion.div
                 key={category.name}
-                className="card-3d group"
+                className="group"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
               >
-                <div className="bg-white dark:bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
-                  {/* Image container with overlay */}
-                  <div className="relative h-48 overflow-hidden">
+                <div className="glass-premium rounded-[2rem] overflow-hidden hover:shadow-2xl transition-all duration-500 border border-white/50 h-full flex flex-col hover:-translate-y-2">
+                  {/* Image container with refined overlay */}
+                  <div className="relative h-56 overflow-hidden">
                     <Image
                       src={category.image}
                       alt={category.name}
                       width={400}
                       height={250}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      unoptimized // For remote UI images if needed, or if next/image errors on unsplash
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      unoptimized 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
 
                     {/* Floating badge */}
                     <motion.div
-                      className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold"
-                      whileHover={{ scale: 1.1 }}
+                      className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-text-primary px-4 py-1.5 rounded-full text-xs font-bold shadow-lg"
+                      whileHover={{ scale: 1.05 }}
                     >
                       {category.popularity}
                     </motion.div>
 
                     {/* Rating */}
-                    <div className="absolute bottom-4 left-4 flex items-center bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1">
-                      <Star className="w-4 h-4 text-yellow-500 mr-1" />
-                      <span className="text-sm font-semibold">{category.rating}</span>
+                    <div className="absolute bottom-4 left-4 flex items-center bg-black/40 backdrop-blur-md rounded-full px-3 py-1 text-white border border-white/10">
+                      <Star className="w-3.5 h-3.5 text-yellow-400 mr-1.5 fill-yellow-400" />
+                      <span className="text-xs font-bold">{category.rating}</span>
                     </div>
                   </div>
 
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-900">{category.name}</h3>
-                      <span className="text-blue-500 font-bold text-lg">{category.price}</span>
+                  <div className="p-8 flex flex-col flex-grow">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-2xl font-bold text-text-primary">{category.name}</h3>
+                      <div className="flex flex-col items-end">
+                        <span className="text-primary font-bold text-xl">{category.price}</span>
+                        <span className="text-xs text-text-muted font-medium">per day</span>
+                      </div>
                     </div>
 
-                    <p className="text-gray-600 mb-4 text-sm">{category.description}</p>
+                    <p className="text-text-secondary mb-6 text-sm font-medium leading-relaxed">{category.description}</p>
 
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-gray-900 mb-2 text-sm">Top Rated Models:</h4>
-                      <div className="space-y-1">
+                    <div className="mb-6 flex-grow">
+                      <h4 className="font-bold text-text-primary mb-3 text-xs uppercase tracking-wider opacity-70">Top Models</h4>
+                      <div className="space-y-2">
                         {category.cars.slice(0, 3).map((car, carIndex) => (
-                          <div key={car.id} className="text-sm text-gray-600 flex items-center">
-                            <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                          <div key={car.id} className="text-sm text-text-secondary flex items-center font-medium">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2.5"></div>
                             {car.vehicleMakeName} {car.vehicleModel}
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-8">
                       {category.features.map((feature, featureIndex) => (
-                        <span key={featureIndex} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                        <span key={featureIndex} className="px-3 py-1 bg-surface border border-border text-text-secondary rounded-lg text-xs font-semibold">
                           {feature}
                         </span>
                       ))}
                     </div>
 
-                    <Link href={`/fleet?category=${category.name}`}>
-                      <button className="btn-modern w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 font-semibold flex items-center justify-center group">
+                    <Link href={`/fleet?category=${category.name}`} className="mt-auto">
+                      <button className="btn-modern w-full bg-text-primary text-white px-6 py-4 rounded-xl hover:bg-gray-900 transition-all duration-300 font-bold flex items-center justify-center group shadow-lg">
                         View {category.name} Cars
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform text-white/70" />
                       </button>
                     </Link>
                   </div>
@@ -251,9 +258,9 @@ export default function FleetSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p className="text-gray-600 dark:text-gray-600 mb-6">Can't find what you're looking for?</p>
-          <Link href="/fleet" className="inline-block btn-modern bg-gray-900 text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition-colors font-semibold text-lg">
-            See All Cars
+          <p className="text-text-secondary font-medium mb-6">Looking for something specific?</p>
+          <Link href="/fleet" className="inline-block btn-modern bg-white text-text-primary border-2 border-border px-10 py-4 rounded-xl hover:border-text-primary transition-all font-bold text-lg">
+            Browse Full Catalog
           </Link>
         </motion.div>
       </div>

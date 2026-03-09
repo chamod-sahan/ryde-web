@@ -167,7 +167,7 @@ const sections: Section[] = [
 
 export default function TermsPage() {
     return (
-        <div className="relative min-h-screen bg-black text-white pt-24 pb-16">
+        <div className="relative min-h-screen bg-background text-text-primary pt-24 pb-16">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4 max-w-4xl">
@@ -177,27 +177,27 @@ export default function TermsPage() {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                 >
-                    <div className="inline-flex items-center gap-3 bg-blue-500/10 border border-blue-500/30 rounded-full px-5 py-2 mb-6">
+                    <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/30 rounded-full px-5 py-2 mb-6">
                         <FileText className="text-blue-400" size={18} />
                         <span className="text-blue-300 text-sm font-medium">Legal Agreement</span>
                     </div>
                     <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent">
                         Terms &amp; Conditions
                     </h1>
-                    <p className="text-gray-400 text-lg max-w-xl mx-auto">
+                    <p className="text-gray-500 text-lg max-w-xl mx-auto">
                         Please read the following terms carefully before renting a vehicle from Ryde Flexi.
                     </p>
-                    <p className="text-sm text-gray-500 mt-4">Effective Date: February 24, 2026</p>
+                    <p className="text-sm text-gray-600 mt-4">Effective Date: February 24, 2026</p>
                 </motion.div>
 
                 {/* Intro Card */}
                 <motion.div
-                    className="glass-premium p-6 rounded-2xl mb-8 border border-blue-500/20"
+                    className="glass-premium p-6 rounded-2xl mb-8 border border-primary/20"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
                 >
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-gray-400 leading-relaxed">
                         Welcome to Ryde Flexi. By renting a vehicle from us, you agree to the following terms and conditions. Please read them carefully to ensure a smooth rental experience.
                     </p>
                 </motion.div>
@@ -216,16 +216,16 @@ export default function TermsPage() {
                             >
                                 {/* Section Header */}
                                 <div className="flex items-center gap-4 p-6 pb-4 border-b border-white/5">
-                                    <div className="bg-blue-500/15 p-3 rounded-xl flex-shrink-0">
+                                    <div className="bg-primary/15 p-3 rounded-xl flex-shrink-0">
                                         <Icon className="text-blue-400" size={20} />
                                     </div>
-                                    <h2 className="text-xl font-bold text-white">{section.title}</h2>
+                                    <h2 className="text-xl font-bold text-text-primary">{section.title}</h2>
                                 </div>
 
                                 {/* Section Body */}
-                                <div className="p-6 pt-4 text-gray-300 leading-relaxed space-y-4">
+                                <div className="p-6 pt-4 text-gray-400 leading-relaxed space-y-4">
                                     {section.intro && (
-                                        <p className="text-gray-400 text-sm">{section.intro}</p>
+                                        <p className="text-gray-500 text-sm">{section.intro}</p>
                                     )}
 
                                     {/* Plain text section (e.g. Dispute Resolution) */}
@@ -235,9 +235,9 @@ export default function TermsPage() {
 
                                     {/* Sub-points */}
                                     {section.subpoints && section.subpoints.map((sub, j) => (
-                                        <div key={j} className="pl-4 border-l-2 border-blue-500/30 space-y-2">
-                                            <p className="font-semibold text-white">➤ {sub.title}</p>
-                                            {sub.text && <p className="text-gray-300">{sub.text}</p>}
+                                        <div key={j} className="pl-4 border-l-2 border-primary/30 space-y-2">
+                                            <p className="font-semibold text-text-primary">➤ {sub.title}</p>
+                                            {sub.text && <p className="text-gray-500">{sub.text}</p>}
                                             {sub.bullets && sub.bullets.length > 0 && (
                                                 <ul className="space-y-1.5 mt-1">
                                                     {sub.bullets.map((bullet, k) => (
@@ -258,7 +258,7 @@ export default function TermsPage() {
 
                 {/* Footer Note */}
                 <motion.p
-                    className="text-center text-gray-500 text-sm mt-10"
+                    className="text-center text-gray-600 text-sm mt-10"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.8 }}

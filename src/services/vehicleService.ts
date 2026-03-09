@@ -277,7 +277,51 @@ class VehicleService {
     }
 
     /**
-     * Get owner insurances by ID (Fetching via Owner ID)
+     * Get insurances directly by Owner ID
+     */
+    async getInsurancesByOwner(ownerId: number): Promise<Insurance[]> {
+        try {
+            console.log(`Fetching insurances for owner ${ownerId}`);
+
+            const response = await this.fetchWithRetry(`${API_BASE_URL}/api/owner-insurances/owner/${ownerId}`, {
+                method: 'GET',
+            });
+
+            if (response.status === 404 || response.status === 204) {
+                return [];
+            }
+
+            const text = await response.text();
+
+            // Check if response is XML (error response)
+            if (text.trim().startsWith('<')) {
+                console.warn(`Insurance endpoint returned XML error, continuing without insurances`);
+                return [];
+            }
+
+            let data: any = [];
+
+            try {
+                data = text ? JSON.parse(text) : [];
+            } catch (e) {
+                console.error('Failed to parse JSON response:', text);
+                return [];
+            }
+
+            if (!response.ok) {
+                console.error(`Insurance API error: ${response.status}`, data);
+                return [];
+            }
+
+            return Array.isArray(data) ? data : [data];
+        } catch (error) {
+            console.error('Get insurances by owner error:', error);
+            throw error;
+        }
+    }
+
+    /**
+     * Get owner insurances by Vehicle ID (Fetches vehicle first to get owner ID)
      */
     async getOwnerInsurances(vehicleId: number): Promise<Insurance[]> {
         try {
@@ -288,44 +332,7 @@ class VehicleService {
                 return [];
             }
 
-            const carOwnerId = vehicle.carOwnerId;
-            console.log(`Fetching insurances for owner ${carOwnerId} (vehicle ${vehicleId})`);
-
-            // Use the endpoint provided by the user: /api/owner-vehicle-insurances/car-owner/{carOwnerId}
-            const response = await this.fetchWithRetry(`${API_BASE_URL}/api/owner-vehicle-insurances/car-owner/${carOwnerId}`, {
-                method: 'GET',
-            });
-
-            if (response.status === 404 || response.status === 204) {
-                return [];
-            }
-
-            const text = await response.text();
-
-            const url = `${API_BASE_URL}/api/owner-vehicle-insurances/car-owner/${carOwnerId}`;
-            // Check if response is XML (error response)
-            if (text.trim().startsWith('<')) {
-                console.warn(`Insurance endpoint (${url}) returned XML error, continuing without insurances`);
-                return [];
-            }
-
-            let data: any = [];
-
-            try {
-                data = text ? JSON.parse(text) : [];
-            } catch (e) {
-                console.error('Failed to parse JSON response:', text);
-                if (!response.ok) {
-                    throw new Error(`Server returned an error (${response.status}). Please try again later.`);
-                }
-                return [];
-            }
-
-            if (!response.ok) {
-                throw new Error(data.message || `HTTP error! status: ${response.status}`);
-            }
-
-            return Array.isArray(data) ? data : [data];
+            return this.getInsurancesByOwner(vehicle.carOwnerId);
         } catch (error) {
             console.error('Get owner insurances error:', error);
             throw error;

@@ -51,7 +51,7 @@ const policies = [
 ];
 
 const colorMap: Record<string, { bg: string; icon: string; badge: string }> = {
-    blue: { bg: 'bg-blue-500/15', icon: 'text-blue-400', badge: 'bg-blue-500/10 border-blue-500/30 text-blue-300' },
+    blue: { bg: 'bg-primary/15', icon: 'text-blue-400', badge: 'bg-primary/10 border-primary/30 text-blue-300' },
     green: { bg: 'bg-green-500/15', icon: 'text-green-400', badge: 'bg-green-500/10 border-green-500/30 text-green-300' },
     yellow: { bg: 'bg-yellow-500/15', icon: 'text-yellow-400', badge: 'bg-yellow-500/10 border-yellow-500/30 text-yellow-300' },
     red: { bg: 'bg-red-500/15', icon: 'text-red-400', badge: 'bg-red-500/10 border-red-500/30 text-red-300' },
@@ -59,7 +59,7 @@ const colorMap: Record<string, { bg: string; icon: string; badge: string }> = {
 
 export default function CancellationPage() {
     return (
-        <div className="relative min-h-screen bg-black text-white pt-24 pb-16">
+        <div className="relative min-h-screen bg-background text-text-primary pt-24 pb-16">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4 max-w-4xl">
@@ -69,7 +69,7 @@ export default function CancellationPage() {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                 >
-                    <div className="inline-flex items-center gap-3 bg-blue-500/10 border border-blue-500/30 rounded-full px-5 py-2 mb-6">
+                    <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/30 rounded-full px-5 py-2 mb-6">
                         <XCircle className="text-blue-400" size={18} />
                         <span className="text-blue-300 text-sm font-medium">Cancellation &amp; Refund Policy</span>
                     </div>
@@ -84,7 +84,7 @@ export default function CancellationPage() {
 
                 {/* Intro Card */}
                 <motion.div
-                    className="glass-premium p-6 rounded-2xl mb-8 border border-blue-500/20"
+                    className="glass-premium p-6 rounded-2xl mb-8 border border-primary/20"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
@@ -112,7 +112,7 @@ export default function CancellationPage() {
                                         <Icon className={colors.icon} size={22} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h2 className="text-lg font-bold text-white">{policy.title}</h2>
+                                        <h2 className="text-lg font-bold text-text-primary">{policy.title}</h2>
                                         <p className="text-gray-300 leading-relaxed">{policy.text}</p>
                                         {policy.contact && (
                                             <a
@@ -138,10 +138,10 @@ export default function CancellationPage() {
                     transition={{ delay: 0.6 }}
                 >
                     <div className="flex items-center gap-4 p-6 pb-4 border-b border-white/5">
-                        <div className="bg-blue-500/15 p-3 rounded-xl">
+                        <div className="bg-primary/15 p-3 rounded-xl">
                             <XCircle className="text-blue-400" size={20} />
                         </div>
-                        <h2 className="text-xl font-bold text-white">Quick Reference</h2>
+                        <h2 className="text-xl font-bold text-text-primary">Quick Reference</h2>
                     </div>
                     <div className="p-6 overflow-x-auto">
                         <table className="w-full text-sm text-left">

@@ -24,7 +24,7 @@ export default function ResetPasswordPage() {
     };
 
     return (
-        <div className="relative min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white flex items-center justify-center p-4 transition-colors duration-300">
+        <div className="relative min-h-screen bg-white  text-gray-900  flex items-center justify-center p-4 transition-colors duration-300">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4 max-w-md">
@@ -34,11 +34,11 @@ export default function ResetPasswordPage() {
                     animate={{ opacity: 1, y: 0 }}
                 >
                     <div className="text-center mb-8">
-                        <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <Lock className="text-blue-500" size={32} />
+                        <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <Lock className="text-primary" size={32} />
                         </div>
                         <h1 className="text-3xl font-bold mb-2">Set New Password</h1>
-                        <p className="text-gray-600 dark:text-gray-400 mb-8">Your new password must be different from previously used passwords.</p>
+                        <p className="text-gray-600  mb-8">Your new password must be different from previously used passwords.</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -49,7 +49,7 @@ export default function ResetPasswordPage() {
                                     type={showPassword ? 'text' : 'password'}
                                     value={formData.password}
                                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors pr-12"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors pr-12"
                                     placeholder="Enter new password"
                                     required
                                     minLength={8}
@@ -57,7 +57,7 @@ export default function ResetPasswordPage() {
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-text-primary transition-colors"
                                 >
                                     {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                                 </button>
@@ -72,14 +72,14 @@ export default function ResetPasswordPage() {
                                     type={showConfirmPassword ? 'text' : 'password'}
                                     value={formData.confirmPassword}
                                     onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                                    className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors pr-12"
+                                    className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:outline-none transition-colors pr-12"
                                     placeholder="Confirm new password"
                                     required
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-text-primary transition-colors"
                                 >
                                     {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                                 </button>
@@ -92,7 +92,7 @@ export default function ResetPasswordPage() {
 
                         <button
                             type="submit"
-                            className="w-full btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all"
+                            className="w-full btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all"
                             disabled={formData.password !== formData.confirmPassword}
                         >
                             Reset Password

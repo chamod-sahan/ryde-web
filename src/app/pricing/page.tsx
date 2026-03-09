@@ -78,7 +78,7 @@ export default function PricingPage() {
     ];
 
     return (
-        <div className="relative min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white pt-24 pb-12 transition-colors duration-300">
+        <div className="relative min-h-screen bg-white  text-gray-900  pt-24 pb-12 transition-colors duration-300">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4">
@@ -88,7 +88,7 @@ export default function PricingPage() {
                     className="text-center mb-12"
                 >
                     <h1 className="text-4xl md:text-6xl font-bold mb-4">Transparent Pricing</h1>
-                    <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+                    <p className="text-gray-600  text-lg max-w-2xl mx-auto">
                         Choose the perfect tier for your luxury car rental needs. No hidden fees, no surprises.
                     </p>
                 </motion.div>
@@ -98,20 +98,20 @@ export default function PricingPage() {
                     {tiers.map((tier, i) => (
                         <motion.div
                             key={tier.name}
-                            className={`glass-premium p-8 rounded-3xl relative ${tier.popular ? 'border-2 border-blue-500' : ''
+                            className={`glass-premium p-8 rounded-3xl relative ${tier.popular ? 'border-2 border-primary' : ''
                                 }`}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
                         >
                             {tier.popular && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-text-primary px-4 py-1 rounded-full text-sm font-bold">
                                     Most Popular
                                 </div>
                             )}
 
                             <div className="text-center mb-6">
-                                <tier.icon className="mx-auto mb-4 text-blue-500" size={48} />
+                                <tier.icon className="mx-auto mb-4 text-primary" size={48} />
                                 <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
                                 <p className="text-gray-400 text-sm mb-4">{tier.description}</p>
                                 <div className="flex items-baseline justify-center gap-1">
@@ -123,7 +123,7 @@ export default function PricingPage() {
                             <ul className="space-y-3 mb-8">
                                 {tier.features.map((feature, idx) => (
                                     <li key={idx} className="flex items-start gap-3">
-                                        <Check size={20} className="text-blue-500 flex-shrink-0 mt-0.5" />
+                                        <Check size={20} className="text-primary flex-shrink-0 mt-0.5" />
                                         <span className="text-gray-300">{feature}</span>
                                     </li>
                                 ))}
@@ -132,8 +132,8 @@ export default function PricingPage() {
                             <Link
                                 href="/fleet"
                                 className={`w-full btn-modern py-3 rounded-xl font-bold flex items-center justify-center ${tier.popular
-                                    ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white'
-                                    : 'bg-white/10 hover:bg-white/20 text-white'
+                                    ? 'bg-gradient-to-r from-primary-dark to-primary text-text-primary'
+                                    : 'bg-gray-100/10 hover:bg-gray-100/20 text-text-primary'
                                     } transition-all`}
                             >
                                 {tier.cta}
@@ -152,7 +152,7 @@ export default function PricingPage() {
                     <h2 className="text-3xl font-bold mb-6 text-center">Optional Add-ons</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {addons.map((addon, i) => (
-                            <div key={i} className="bg-white/5 p-4 rounded-xl">
+                            <div key={i} className="bg-gray-100/5 p-4 rounded-xl">
                                 <div className="font-medium mb-1">{addon.name}</div>
                                 <div className="text-blue-400 font-bold">{addon.price}</div>
                             </div>
@@ -179,7 +179,7 @@ export default function PricingPage() {
                         </div>
                         <div>
                             <h3 className="font-bold mb-2">Can I get a discount for longer rentals?</h3>
-                            <p className="text-gray-400">Yes! Rentals of 7+ days receive automatic discounts. Check our <Link href="/offers" className="text-blue-500 hover:text-blue-400">special offers</Link> page for current promotions.</p>
+                            <p className="text-gray-400">Yes! Rentals of 7+ days receive automatic discounts. Check our <Link href="/offers" className="text-primary hover:text-blue-400">special offers</Link> page for current promotions.</p>
                         </div>
                         <div>
                             <h3 className="font-bold mb-2">What payment methods do you accept?</h3>

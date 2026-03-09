@@ -1,31 +1,31 @@
 export const palette = {
     chalk: {
         base: '#FFFFFF',
-        contrast: '#F8FAFC',
-        muted: '#F1F5F9',
+        contrast: '#F9FAFB',
+        muted: '#F3F4F6',
     },
     slate: {
-        base: '#94A3B8',
-        dark: '#64748B',
-        darker: '#475569',
+        base: '#4B5563',    // Gray 600 - Minimum for clear visibility
+        dark: '#374151',    // Gray 700 - Standard text
+        darker: '#111827',  // Slate 900 - Headings
     },
     midnight: {
-        base: '#0B0F19',      // Deeper, richer background
-        dark: '#151C2C',      // Cards / elevated surfaces
-        light: '#2A3447',     // Hover / Active states
-        border: '#2D3748',    // Subtle borders
+        base: '#FFFFFF',      // Background
+        dark: '#F9FAFB',      // Surface
+        light: '#F3F4F6',     // Hover
+        border: '#E5E7EB',    // Border
     },
     royal: {
-        base: '#3B82F6',      // Primary blue
-        light: '#60A5FA',     // Lighter variant
-        dark: '#2563EB',      // Darker variant
-        glow: 'rgba(59, 130, 246, 0.5)',
+        base: '#3B82F6',      // Blue 500
+        light: '#60A5FA',     // Blue 400
+        dark: '#2563EB',      // Blue 600
+        glow: 'rgba(59, 130, 246, 0.15)',
     },
     flare: {
-        base: '#EF4444',      // Accent red
-        light: '#F87171',     // Lighter variant
-        dark: '#DC2626',      // Darker variant
-        glow: 'rgba(239, 68, 68, 0.5)',
+        base: '#F43F5E',      // Rose 500
+        light: '#FB7185',     // Rose 400
+        dark: '#E11D48',      // Rose 600
+        glow: 'rgba(244, 63, 94, 0.15)',
     },
     success: {
         base: '#10B981',
@@ -44,9 +44,9 @@ export const COLORS = {
     background: palette.midnight.base,
     surface: palette.midnight.dark,
     text: {
-        primary: palette.chalk.base,
-        secondary: palette.slate.base,
-        light: palette.chalk.contrast,
+        primary: '#000000',     /* Pure Black */
+        secondary: '#111827',   /* Slate 900 */
+        light: '#374151',       /* Gray 700 */
     },
     border: palette.midnight.border,
 } as const;

@@ -18,7 +18,7 @@ export default function FAQPage() {
     ];
 
     return (
-        <div className="relative min-h-screen bg-black text-white pt-24 pb-12">
+        <div className="relative min-h-screen bg-background text-text-primary pt-24 pb-12">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4 max-w-4xl">
@@ -49,7 +49,7 @@ export default function FAQPage() {
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                                className="w-full p-6 flex justify-between items-center hover:bg-white/5 transition-colors text-left"
+                                className="w-full p-6 flex justify-between items-center hover:bg-gray-100/5 transition-colors text-left"
                             >
                                 <span className="font-bold text-lg">{faq.q}</span>
                                 <ChevronDown className={`transition-transform ${openIndex === i ? 'rotate-180' : ''}`} />

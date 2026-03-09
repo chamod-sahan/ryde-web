@@ -99,7 +99,7 @@ const sections = [
 
 export default function PrivacyPage() {
     return (
-        <div className="relative min-h-screen bg-black text-white pt-24 pb-16">
+        <div className="relative min-h-screen bg-background text-text-primary pt-24 pb-16">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4 max-w-4xl">
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                 >
-                    <div className="inline-flex items-center gap-3 bg-blue-500/10 border border-blue-500/30 rounded-full px-5 py-2 mb-6">
+                    <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/30 rounded-full px-5 py-2 mb-6">
                         <Shield className="text-blue-400" size={18} />
                         <span className="text-blue-300 text-sm font-medium">Your Privacy Matters</span>
                     </div>
@@ -124,7 +124,7 @@ export default function PrivacyPage() {
 
                 {/* Intro Card */}
                 <motion.div
-                    className="glass-premium p-6 rounded-2xl mb-8 border border-blue-500/20"
+                    className="glass-premium p-6 rounded-2xl mb-8 border border-primary/20"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
@@ -148,10 +148,10 @@ export default function PrivacyPage() {
                             >
                                 {/* Section Header */}
                                 <div className="flex items-center gap-4 p-6 pb-4 border-b border-white/5">
-                                    <div className="bg-blue-500/15 p-3 rounded-xl flex-shrink-0">
+                                    <div className="bg-primary/15 p-3 rounded-xl flex-shrink-0">
                                         <Icon className="text-blue-400" size={20} />
                                     </div>
-                                    <h2 className="text-xl font-bold text-white">{section.title}</h2>
+                                    <h2 className="text-xl font-bold text-text-primary">{section.title}</h2>
                                 </div>
 
                                 {/* Section Body */}

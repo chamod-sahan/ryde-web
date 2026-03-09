@@ -17,11 +17,11 @@ export default function ForgotPasswordPage() {
     };
 
     return (
-        <div className="relative min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white flex items-center justify-center p-4 transition-colors duration-300">
+        <div className="relative min-h-screen bg-white  text-gray-900  flex items-center justify-center p-4 transition-colors duration-300">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4 max-w-md">
-                <Link href="/signin" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
+                <Link href="/signin" className="inline-flex items-center gap-2 text-gray-400 hover:text-text-primary mb-8 transition-colors">
                     <ArrowLeft size={20} />
                     Back to Sign In
                 </Link>
@@ -34,8 +34,8 @@ export default function ForgotPasswordPage() {
                     {!submitted ? (
                         <>
                             <div className="text-center mb-8">
-                                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <Mail className="text-blue-500" size={32} />
+                                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <Mail className="text-primary" size={32} />
                                 </div>
                                 <h1 className="text-3xl font-bold mb-2">Forgot Password?</h1>
                                 <p className="text-gray-400">No worries, we'll send you reset instructions.</p>
@@ -48,7 +48,7 @@ export default function ForgotPasswordPage() {
                                         type="email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className="w-full bg-white dark:bg-black/60 border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white focus:border-blue-500 focus:outline-none transition-colors"
+                                        className="w-full bg-white  border border-gray-300  rounded-xl px-4 py-3 text-gray-900  focus:border-primary focus:outline-none transition-colors"
                                         placeholder="your@email.com"
                                         required
                                     />
@@ -56,7 +56,7 @@ export default function ForgotPasswordPage() {
 
                                 <button
                                     type="submit"
-                                    className="w-full btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all"
+                                    className="w-full btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all"
                                 >
                                     Send Reset Link
                                 </button>
@@ -68,10 +68,10 @@ export default function ForgotPasswordPage() {
                                 <Mail className="text-green-500" size={32} />
                             </div>
                             <h2 className="text-2xl font-bold mb-2">Check Your Email</h2>
-                            <p className="text-gray-600 dark:text-gray-400 mb-8">
-                                We've sent password reset instructions to <span className="text-white font-medium">{email}</span>
+                            <p className="text-gray-600  mb-8">
+                                We've sent password reset instructions to <span className="text-text-primary font-medium">{email}</span>
                             </p>
-                            <Link href="/signin" className="text-blue-500 hover:text-blue-400 transition-colors">
+                            <Link href="/signin" className="text-primary hover:text-blue-400 transition-colors">
                                 Return to Sign In
                             </Link>
                         </div>

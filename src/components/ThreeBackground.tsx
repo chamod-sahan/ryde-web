@@ -4,13 +4,10 @@ import { Canvas } from '@react-three/fiber';
 import { Environment, PerspectiveCamera, Stars } from '@react-three/drei';
 import { Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '@/contexts/ThemeContext';
 
 export default function ThreeBackground() {
-    const { theme } = useTheme();
-
     return (
-        <div className="absolute inset-0 z-0 bg-white dark:bg-black transition-colors duration-300">
+        <div className="absolute inset-0 z-0 bg-white transition-colors duration-300">
             {/* Background Image with Animation */}
             <motion.div
                 className="absolute inset-0 z-0"
@@ -31,23 +28,24 @@ export default function ThreeBackground() {
                     alt="Luxury Car Background"
                     className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40"></div>
+                {/* Stronger white overlay to ensure dark text visibility */}
+                <div className="absolute inset-0 bg-white/60"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/20 to-white/80"></div>
             </motion.div>
 
             <Canvas shadows dpr={[1, 2]}>
                 <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={45} />
 
-                <ambientLight intensity={theme === 'dark' ? 0.2 : 0.5} />
+                <ambientLight intensity={0.7} />
 
                 <Suspense fallback={null}>
-                    <Environment preset={theme === 'dark' ? "night" : "sunset"} />
+                    <Environment preset="sunset" />
                     <Stars
                         radius={100}
                         depth={50}
-                        count={theme === 'dark' ? 5000 : 2000}
+                        count={1000}
                         factor={4}
-                        saturation={theme === 'dark' ? 0 : 0.3}
+                        saturation={0}
                         fade
                         speed={1}
                     />

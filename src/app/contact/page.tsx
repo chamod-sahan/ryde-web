@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
 
 export default function ContactPage() {
     return (
-        <div className="relative min-h-screen bg-black text-white pt-24 pb-12">
+        <div className="relative min-h-screen bg-background text-text-primary pt-24 pb-12">
             <ThreeBackground />
 
             <div className="relative z-10 container mx-auto px-4">
@@ -35,17 +35,17 @@ export default function ContactPage() {
                         <form className="space-y-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-200 mb-2">Name</label>
-                                <input type="text" className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white" />
+                                <input type="text" className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-200 mb-2">Email</label>
-                                <input type="email" className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white" />
+                                <input type="email" className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-200 mb-2">Message</label>
-                                <textarea rows={6} className="w-full bg-black/60 border border-gray-700 rounded-xl px-4 py-3 text-white resize-none"></textarea>
+                                <textarea rows={6} className="w-full bg-gray-100/60 border border-gray-700 rounded-xl px-4 py-3 text-text-primary resize-none"></textarea>
                             </div>
-                            <button type="submit" className="w-full btn-modern bg-gradient-to-r from-blue-600 to-blue-500 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                            <button type="submit" className="w-full btn-modern bg-gradient-to-r from-primary-dark to-primary text-text-primary py-4 rounded-xl font-bold flex items-center justify-center gap-2">
                                 <Send size={20} />
                                 Send Message
                             </button>
@@ -66,8 +66,8 @@ export default function ContactPage() {
                             { icon: Clock, title: 'Hours', info: '24/7 Service', sub: 'Always available' },
                         ].map((item, i) => (
                             <div key={i} className="glass-premium p-6 rounded-2xl flex items-start gap-4">
-                                <div className="bg-blue-500/20 p-3 rounded-xl">
-                                    <item.icon className="text-blue-500" size={24} />
+                                <div className="bg-primary/20 p-3 rounded-xl">
+                                    <item.icon className="text-primary" size={24} />
                                 </div>
                                 <div>
                                     <div className="text-sm text-gray-400 mb-1">{item.title}</div>
